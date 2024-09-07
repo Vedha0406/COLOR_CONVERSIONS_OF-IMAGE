@@ -60,53 +60,92 @@ o	Save the final modified image to your local directory.
 ## Output:
 
 ### i)Read and Display an Image
-
+```
 import cv2
-
 image=cv2.imread('example.png',1)
-
 image = cv2.resize(image, (500, 300))4
-
 cv2.imshow('example2.png',image)
-
 cv2.waitKey(0)
-
 cv2.destroyAllWindows()
-
+```
 ![image](https://github.com/user-attachments/assets/dc52b3e6-c470-4298-98e6-23a4b047a115)
 
-
-
-
 ### ii)Draw Shapes and Add Text
-
+```
 cv2.imwrite('example.png',image)
+image.shape
+```
 ![write image](https://github.com/user-attachments/assets/e27a4937-c7f9-41df-8db2-922234bedd8d)
+![image](https://github.com/user-attachments/assets/cfe54f95-22b9-4595-80d3-0bb073ecbfa5)
 
 
 ### iii)Image Color Conversion
 
+### RGB to HSV AND  RGB to GRAY
+```
+img = cv2.imread('example.png',1)
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original Image',img)
+hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv1)
+hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv2)
+gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray1)
+gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/b00435d4-2f30-4762-abd5-fd2f3a0a43de)
+![image](https://github.com/user-attachments/assets/1ee63c85-fe25-434f-99cb-57c753faaf34)
+![image](https://github.com/user-attachments/assets/b18b46af-905f-414f-aaa8-dd3a186393f1)
+![image](https://github.com/user-attachments/assets/10988290-1d45-4223-a86a-3f058958b650)
 
-image.shape
+### RGB to YCrCb 
+```
+img = cv2.imread('example.png')
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original RGB Image',img)
+YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+cv2.imshow('RGB-2-YCrCb',YCrCb1)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/2cf5a45a-4d29-4474-8a43-15565a0b83cc)
+![image](https://github.com/user-attachments/assets/10ea745d-bda9-4213-b112-183f1e891fe0)
 
-![image](https://github.com/user-attachments/assets/cfe54f95-22b9-4595-80d3-0bb073ecbfa5)
+### HSV image back to RGB
+```
+hsv_image = cv2.imread("example.png")
+rgb_image = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2BGR)
+cv2.imshow('RGB Image', rgb_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/788a3f9b-b4ea-45c0-96e2-8f4364d07889)
+
 
 ### iv)Access and Manipulate Image Pixels
 ```
-import random
-image=cv2.resize(image,(400,400))
-for i in range (150,200):
-    for j in range(image.shape[1]):
-        image[i][j]=[random.randint(0,255),
-                    random.randint(0,255),
-                    random.randint(0,255)]
-cv2.imshow('murugar',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-![image](https://github.com/user-attachments/assets/0620f27f-77ef-46cd-b161-9a6c6acef401)
+![image](https://github.com/user-attachments/assets/1989a6a7-cd73-4736-8e35-2a6ef4dd79d3)
+
+![image](https://github.com/user-attachments/assets/caa8c681-d998-434a-9cd3-0eab383f41a4)
 ```
 
-### v)Image Resizing
+ ### Image Resizing
+ ```
+import cv2
+image = cv2.imread("example.png")
+height, width = image.shape[:2]
+half_size_image = cv2.resize(image, (width // 2, height // 2))
+cv2.imshow('Resized Image (Half Size)', half_size_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/0d865fa1-6042-4612-95b0-fdeb08300773)
+
+### vi)Image Cropping
 ```
 image=cv2.imread('example.png',1)
 image=cv2.resize(image,(400,400))
@@ -115,24 +154,35 @@ image[110:180,120:200] = tag
 cv2.imshow('murugar',image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-![image](https://github.com/user-attachments/assets/07f134ab-9ac5-4e2a-bbb3-cc2c2bc5ad82)
 ```
-
-### vi)Image Cropping
-
+![image](https://github.com/user-attachments/assets/07f134ab-9ac5-4e2a-bbb3-cc2c2bc5ad82)
 
 ### vii)Image Flipping
-<br>
-<br>
+### HORIZONTAL FLIPPING
+```
+import cv2
+image = cv2.imread("example.png")
+flipped_image = cv2.flip(image, 1)
+cv2.imshow('Flipped Image', flipped_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+### VERTICAL FLIPPING
+```
+import cv2
+image = cv2.imread("example.png")
+flipped_image = cv2.flip(image, 0)
+cv2.imshow('Flipped Image', flipped_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+![image](https://github.com/user-attachments/assets/bb7a8d49-2bd5-42c3-ba62-ff73322f6933)
+![image](https://github.com/user-attachments/assets/a2cc8219-034f-470b-8891-0db9104cddb7)
 
 ### viii)Write and Save the Modified Image
-<br>
-<br>
 
-
-
-
-
+![image](https://github.com/user-attachments/assets/58dfc7b8-be8a-4a61-9335-ef3acff8df6c)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
