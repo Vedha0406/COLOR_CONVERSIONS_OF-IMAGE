@@ -71,12 +71,37 @@ cv2.destroyAllWindows()
 
 ### ii)Draw Shapes and Add Text
 ```
-cv2.imwrite('example.png',image)
-image.shape
+import cv2
+img = cv2.imread("example.png")
+res = cv2.line(img, (0, 0), (599, 799), (200, 100, 205), 10)
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
-![write image](https://github.com/user-attachments/assets/e27a4937-c7f9-41df-8db2-922234bedd8d)
-![image](https://github.com/user-attachments/assets/cfe54f95-22b9-4595-80d3-0bb073ecbfa5)
+![image](https://github.com/user-attachments/assets/15412a6d-bcb8-447c-a0c3-d94130f21b6e)
 
+ii)Draw a circle at the center of the image.
+```
+import cv2
+
+# Load the image
+img = cv2.imread("example.png")
+
+# Get the dimensions of the image
+height, width, _ = img.shape
+
+# Calculate the center of the image
+center_coordinates = (width // 2, height // 2)
+
+# Draw a circle at the center of the image
+res = cv2.circle(img, center_coordinates, 150, (255, 0, 0), 10)
+
+# Display the image with the circle
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/fe83f22f-efc8-417d-b045-370c98da8d33)
 
 ### iii)Image Color Conversion
 
