@@ -62,13 +62,12 @@ o	Save the final modified image to your local directory.
 ### i)Read and Display an Image
 ```
 import cv2
-image=cv2.imread('example.png',1)
-image = cv2.resize(image, (500, 300))4
-cv2.imshow('example2.png',image)
+image=cv2.imread('c.jpg',1)
+cv2.imshow('Image Window', image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-![image](https://github.com/user-attachments/assets/dc52b3e6-c470-4298-98e6-23a4b047a115)
+![image](https://github.com/user-attachments/assets/1a1f2cce-f13c-438d-aeee-e7a75eea56fe)
 
 ### ii)Draw Shapes and Add Text
 ```
