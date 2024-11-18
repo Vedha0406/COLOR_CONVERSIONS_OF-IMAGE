@@ -78,7 +78,8 @@ cv2.imshow('Image Window', res)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-![image](https://github.com/user-attachments/assets/15412a6d-bcb8-447c-a0c3-d94130f21b6e)
+![image](https://github.com/user-attachments/assets/153a0448-6b18-498c-a61d-b414e6972d56)
+)
 
 ii)Draw a circle at the center of the image.
 ```
